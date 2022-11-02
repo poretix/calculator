@@ -40,3 +40,30 @@ function operate(operator, a, b) {
         divide(a, b);
     }
 }
+
+const screenDisplayNormal = document.querySelectorAll('.button');
+const screen = document.querySelector('.screen');
+screenDisplayNormal.forEach((button) => {
+    button.addEventListener('click', function(e) {
+        let screenContent = e.target.textContent;
+        if (screen.textContent === '0') {
+            screen.textContent = screenContent;
+        }
+        else {
+            screen.textContent = screen.textContent + ' ' + screenContent;
+        }
+    })
+})
+
+const screenDisplayOperators = document.querySelectorAll('.grey-button');
+screenDisplayOperators.forEach((button) => {
+    button.addEventListener('click', function(e) {
+        let screenContent = e.target.textContent;
+        if (screen.textContent === '0') {
+            screen.textContent = screenContent;
+        }
+        else {
+            screen.textContent = screen.textContent + ' ' + screenContent;
+        }
+    })
+})
