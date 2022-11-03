@@ -2,42 +2,42 @@ function add(...args) {
     const sum = args.reduce((total, arg) => {
         return total + arg;
     }, 0)
-    console.log(sum);
+    return sum;
 }
 
 function subtract(...args) {
     const difference = args.reduce((total, arg) => {
         return total - arg;
     })
-    console.log(difference);
+    return difference;
 }
 
 function multiply(...args) {
     const product = args.reduce((total, arg) => {
         return total * arg;
     }, 1)
-    console.log(product);
+    return product;
 }
 
 function divide(...args) {
     const quotient = args.reduce((total, arg) => {
         return total / arg;
     })
-    console.log(quotient);
+    return quotient;
 }
 
 function operate(operator, a, b) {
     if (operator === "+") {
-        add(a, b);
+        return add(a, b);
     }
     else if (operator === "-") {
-        subtract(a, b);
+        return subtract(a, b);
     }
     else if (operator === "*") {
-        multiply(a, b);
+        return multiply(a, b);
     }
     else if (operator === "/") {
-        divide(a, b);
+        return divide(a, b);
     }
 }
 
@@ -62,8 +62,22 @@ screenDisplayOperators.forEach((button) => {
         if (screen.textContent === '0') {
             screen.textContent = screenContent;
         }
+        else if (screenContent === 'AC') {
+            screen.textContent = '0';
+        }
         else {
             screen.textContent = screen.textContent + ' ' + screenContent;
         }
     })
+})
+
+const screenDisplaySolve = document.querySelector('.blue-button');
+screenDisplaySolve.addEventListener('click', function(e) {
+    let screenContent = e.target.textContent;
+    if (screenContent === '=') {
+        let splitContent = screen.textContent.split(" ");
+        console.log(splitContent);
+        let answer = operate(splitContent[1], Number(splitContent[0]), Number(splitContent[splitContent.length - 1]));
+        screen.textContent = answer.toString();
+    }
 })
