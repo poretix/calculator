@@ -21,7 +21,12 @@ function multiply(...args) {
 
 function divide(...args) {
     const quotient = args.reduce((total, arg) => {
-        return total / arg;
+        if (arg === 0) {
+            return "Error";
+        }
+        else {
+            return total / arg;
+        }
     })
     return quotient;
 }
@@ -50,7 +55,7 @@ screenDisplayNormal.forEach((button) => {
             screen.textContent = screenContent;
         }
         else {
-            screen.textContent = screen.textContent + ' ' + screenContent;
+            screen.textContent = screen.textContent + screenContent;
         }
     })
 })
@@ -65,8 +70,12 @@ screenDisplayOperators.forEach((button) => {
         else if (screenContent === 'AC') {
             screen.textContent = '0';
         }
+        else if (screenContent === '%') {
+            numberContent = Number(screen.textContent) / 100;
+            screen.textContent = numberContent.toString();
+        }
         else {
-            screen.textContent = screen.textContent + ' ' + screenContent;
+            screen.textContent = screen.textContent + ' ' + screenContent + ' ';
         }
     })
 })

@@ -1,7 +1,17 @@
 html {
     display: flex;
     justify-content: center;
-    padding-top: 100px;
+    padding-top: 150px;
+    background-color: azure;
+}
+
+#background {
+    display: flex;
+    justify-content: center;
+    width: 600px;
+    height: 490px;
+    background-color: rgba(47,47,47,1);
+    padding: 10px;
 }
 #calculator {
     width: 600px;
@@ -13,13 +23,14 @@ html {
     padding-right: 10px;
     padding-bottom: 5px;
     text-align: right;
+    font-size: 30px;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.8);
+    background-color: lightblue;
 }
 
 .button-container {
     display: grid;
-    background-color: #f1f3f4;
     gap: 10px;
     padding-top: 10px;
     grid-template-columns: auto auto auto auto;
@@ -31,6 +42,10 @@ html {
     padding: 20px;
     font-size: 30px;
     border-radius: 10px;
+}
+
+.button {
+    background-color: #f1f3f4;
 }
 
 .grey-button {
